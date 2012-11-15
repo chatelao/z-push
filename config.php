@@ -216,23 +216,20 @@
     // **********************
     //  BackendPhpaddressbook settings
     // **********************
-    include(dirname(__FILE__).DIRECTORY_SEPARATOR.".."
-                     .DIRECTORY_SEPARATOR."config"
-               	 	         .DIRECTORY_SEPARATOR."config.php");
 
-    //
-    // Define the tablenames,
-    // if not defined in "config.php"
+    // Define the tablenames, if not defined in "config.php"
     if(!isset($table))         $table         = "addressbook";
     if(!isset($month_lookup))  $month_lookup  = "month_lookup";
     if(!isset($table_groups))  $table_groups  = "group_list";
     if(!isset($table_grp_adr)) $table_grp_adr = "address_in_groups";
+    if(!isset($usertable))     $usertable     = "users";
 
-// Apply the table prefix, if available
-$table         = $table_prefix.$table;
-$month_lookup  = $table_prefix.$month_lookup;
-$table_groups  = $table_prefix.$table_groups;
-$table_grp_adr = $table_prefix.$table_grp_adr;
+    // Apply the table prefix, if available
+    $table         = $table_prefix.$table;
+    $month_lookup  = $table_prefix.$month_lookup;
+    $table_groups  = $table_prefix.$table_groups;
+    $table_grp_adr = $table_prefix.$table_grp_adr;
+    $usertable     = $table_prefix.$usertable;
 
 // Assemble the statements
 if(true || $group_name == "") {
